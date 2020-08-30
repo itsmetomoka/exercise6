@@ -4,6 +4,7 @@
     <title>Bookers</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <script src="https://kit.fontawesome.com/188b0a3462.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -16,21 +17,37 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ">
-          <li class="nav-item ">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          <li class="nav-item">
+            <%= link_to homes_path ,class:"nav-link" do%>
+            <i class="fas fa-home">Home</i>
+            <% end %>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Features</a>
+            <%= link_to new_user_registration_path ,class:"nav-link" do %><i class="fas fa-user-plus">Sign up </i>
+            <% end %>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Pricing</a>
+            <%= link_to new_user_session_path ,class:"nav-link" do%>
+              <i class="fas fa-sign-in-alt">Log in</i>
+            <% end %>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Disabled</a>
+            <%= link_to destroy_user_session_path, class:"nav-link", :method =>:delete do%>
+              <i class="fas fa-sign-out-alt"></i>Log out
+            <% end %>
           </li>
         </ul>
       </div>
     </nav>
     <%= yield %>
+
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 offset-md-9">
+          <p>CopyRight Infratop.inc</p>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
