@@ -17,6 +17,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="nav-icon">
         <ul class="navbar-nav ">
           <% if user_signed_in? %>
             <li class="nav-item">
@@ -25,12 +26,12 @@
               <% end %>
             </li>
             <li class="nav-item">
-              <%= link_to "#" ,class:"nav-link" do%>
+              <%= link_to users_path ,class:"nav-link" do%>
               <i class="fas fa-user">User</i>
               <% end %>
             </li>
             <li class="nav-item">
-              <%= link_to "#" ,class:"nav-link" do%>
+              <%= link_to books_path ,class:"nav-link" do%>
               <i class="fas fa-book">Books</i>
               <% end %>
             </li>
@@ -61,6 +62,7 @@
             </li>
           <% end %>
         </ul>
+        </div>
       </div>
     </nav>
     <%= yield %>

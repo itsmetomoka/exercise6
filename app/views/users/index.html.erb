@@ -1,0 +1,26 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-3">
+			<%= render 'users/profile', user: current_user %>
+			<%= render 'books/sidebar', book:@book, user:current_user%>
+		</div>
+		<div class="col-md-9">
+			<h3>Users</h3>
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Image</th>
+							<th>Name</th>
+							<th></th>
+						</tr>
+					</thead>
+					<% @users.each do |user| %>
+							<td><%= attachment_image_tag user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg",size: "50x50" %></td>
+							<td><%=	user.name %></td>
+							<td><%=link_to "show",user_path(user.id) %></td>
+							</tr>
+					<% end %>
+				</table>
+		</div>
+	</div>
+</div>
