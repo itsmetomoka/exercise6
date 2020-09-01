@@ -1,3 +1,8 @@
+<p class ="message">
+	<% flash.each do |message_type, message| %>
+    <%= message %>
+  <% end %>
+
 <div class ="container">
 	<div class="row">
 		<div class= "col-md-6 offset-md-3">
@@ -11,7 +16,6 @@
 					<%= link_to "sign up", new_user_registration_path %>
 				</button>
 				<button type="button" class="btn btn-success btn-block"><%= link_to "Log in", new_user_session_path %></button>
-				<%= link_to "log out", destroy_user_session_path, method: :delete %>
 			</div>
 		</div>
 	</div>
