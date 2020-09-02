@@ -10,19 +10,25 @@
 			<h2>Book Detail </h2>
 			<table class="table">
 				<tr><th>
-					<%= attachment_image_tag @user, :profile_image, :fill, 60, 60, class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg"%>
+					<%= attachment_image_tag @user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg"%><br>
+					<ul class="colored">
+					<%= link_to @user.name, user_path(@user.id)%>
+				</ul>
 				</th><th>
 					<%=@book.title %>
 				</th><th>
 					<%= @book.opinion %>
-				</th><th>
-					<button type="button" class="btn btn-success">
-						<%= link_to "edit", edit_book_path(@book.id) %>
-					</button>
-				</th><th>
-					<button type="button" class="btn btn-danger">
-						<%= link_to "delete", book_path(@book.id),method: :delete ,"data-confirm" =>"Are you sure?" %>
-					</button>
+				</th>
+					<% if @book.user == current_user %>
+						<th>
+							<button type="button" class="btn btn-success">
+								<%= link_to "edit", edit_book_path(@book.id) %>
+							</button>
+						</th><th>
+							<button type="button" class="btn btn-danger">
+								<%= link_to "delete", book_path(@book.id),method: :delete ,"data-confirm" =>"Are you sure?" %>
+							</button>
+					<% end %>
 				</th></tr>
 			</table>
 		</div>

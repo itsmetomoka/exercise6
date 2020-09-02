@@ -3,6 +3,7 @@ class BooksController < ApplicationController
 		@book= Book.new(book_params)
     @book.user_id = current_user.id
     if  @book.save
+      flash[:notice] = "posted successfully"
     redirect_to user_path(current_user.id)
     else
       @books=Book.all
@@ -29,12 +30,14 @@ class BooksController < ApplicationController
   def update
     book = Book.find(params[:id])
     book.update(book_params)
+    flash[:notice] = "your post was updated successfully"
     redirect_to user_path(current_user.id)
   end
 
   def destroy
   	book = Book.find(params[:id])
   	book.destroy
+    flash[:notice] ="your post was deleted successfully"
   	redirect_to user_path(current_user.id)
   end
   private

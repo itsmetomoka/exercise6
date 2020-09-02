@@ -1,4 +1,4 @@
-.message {
+.notice{
 	color: green;
 }
 
@@ -7,5 +7,19 @@
 }
 
 .nav-icon{
-	padding-left: 900px;
+	padding-left: 750px;
+}
+
+
+.logo{
+	padding-left: 150px;
+}
+
+.colored a:hover {
+	color: white;
+	background-color: black;
+}
+
+.colored a {
+	color: black;
 }
