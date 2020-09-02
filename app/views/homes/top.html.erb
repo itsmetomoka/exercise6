@@ -1,21 +1,25 @@
-<p class ="message">
-	<% flash.each do |message_type, message| %>
-    <%= message %>
-  <% end %>
+
+
 
 <div class ="container">
+	<div class="notice">
+	<p class ="message">
+		<% flash.each do |message_type, message| %>
+	    <%= message %>
+	  <% end %>
+	</div>
 	<div class="row">
-		<div class= "col-md-6 offset-md-3">
+		<div class= "col-xs-6 offset-xs-3 col-md-6 offset-md-3">
 			<h1>Welcome to <i class="fas fa-book"></i>Bookers !!</h1>
-			<p>In <i class="fas fa-book"></i>booers,<br>
+			<p>In <i class="fas fa-book"></i><strong>Bookers</strong>,<br>
 				you can share and exchange your opinions,inpressions,and emotions<br>
 			about various books!</p>
 
-			<div class="col-10 ">
+			<div class="col-xs-10 col-md-10">
 				<button type="button" class="btn btn-secondary btn-block">
-					<%= link_to "sign up", new_user_registration_path %>
+					<%= link_to "Log in", new_user_session_path %>
 				</button>
-				<button type="button" class="btn btn-success btn-block"><%= link_to "Log in", new_user_session_path %></button>
+				<button type="button" class="btn btn-success btn-block"><%= link_to "Sign up", new_user_registration_path %></button>
 			</div>
 		</div>
 	</div>

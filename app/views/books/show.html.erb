@@ -1,13 +1,16 @@
 
 
 <div class="container">
+	<% if flash[:updated] %>
+		<p class ="notice"><%= flash[:updated] %></p>
+	<% end %>
 	<div class="row">
-		<div class="col-md-3">
+		<div class="col-xs-3 col-md-3">
 			<%= render 'users/profile', user: @user %>
 			<%= render 'books/sidebar', book: @book_new %>
 		</div>
-		<div class="col-md-9">
-			<h2>Book Detail </h2>
+		<div class="col-xs-9 col-md-9">
+			<h2>Book detail </h2>
 			<table class="table">
 				<tr><th>
 					<%= attachment_image_tag @user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg"%><br>
@@ -17,16 +20,16 @@
 				</th><th>
 					<%=@book.title %>
 				</th><th>
-					<%= @book.opinion %>
+					<%= @book.body %>
 				</th>
 					<% if @book.user == current_user %>
 						<th>
 							<button type="button" class="btn btn-success">
-								<%= link_to "edit", edit_book_path(@book.id) %>
+								<%= link_to "Edit", edit_book_path(@book.id) %>
 							</button>
 						</th><th>
 							<button type="button" class="btn btn-danger">
-								<%= link_to "delete", book_path(@book.id),method: :delete ,"data-confirm" =>"Are you sure?" %>
+								<%= link_to "Destroy", book_path(@book.id),method: :delete ,"data-confirm" =>"Are you sure?" %>
 							</button>
 					<% end %>
 				</th></tr>
