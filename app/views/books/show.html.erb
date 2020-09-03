@@ -1,9 +1,6 @@
 
 
 <div class="container">
-	<% if flash[:updated] %>
-		<p class ="notice"><%= flash[:updated] %></p>
-	<% end %>
 	<div class="row">
 		<div class="col-xs-3 col-md-3">
 			<%= render 'users/profile', user: @user %>
@@ -24,13 +21,9 @@
 				</th>
 					<% if @book.user == current_user %>
 						<th>
-							<button type="button" class="btn btn-success">
-								<%= link_to "Edit", edit_book_path(@book.id) %>
-							</button>
+							<%= link_to "Edit", edit_book_path(@book.id), class:"btn btn-success"%>
 						</th><th>
-							<button type="button" class="btn btn-danger">
-								<%= link_to "Destroy", book_path(@book.id),method: :delete ,"data-confirm" =>"Are you sure?" %>
-							</button>
+								<%= link_to "Destroy", book_path(@book.id),method: :delete ,"data-confirm" =>"Are you sure?", class:"btn btn-danger" %>
 					<% end %>
 				</th></tr>
 			</table>

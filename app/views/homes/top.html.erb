@@ -2,12 +2,6 @@
 
 
 <div class ="container">
-	<div class="notice">
-	<p class ="message">
-		<% flash.each do |message_type, message| %>
-	    <%= message %>
-	  <% end %>
-	</div>
 	<div class="row">
 		<div class= "col-xs-6 offset-xs-3 col-md-6 offset-md-3">
 			<h1>Welcome to <i class="fas fa-book"></i>Bookers !!</h1>
@@ -16,10 +10,8 @@
 			about various books!</p>
 
 			<div class="col-xs-10 col-md-10">
-				<button type="button" class="btn btn-secondary btn-block">
-					<%= link_to "Log in", new_user_session_path %>
-				</button>
-				<button type="button" class="btn btn-success btn-block"><%= link_to "Sign up", new_user_registration_path %></button>
+					<%= link_to "Log in", new_user_session_path, class:"btn btn-secondary btn-block" %>
+					<%= link_to "Sign up", new_user_registration_path, class:"btn btn-success btn-block" %>
 			</div>
 		</div>
 	</div>
