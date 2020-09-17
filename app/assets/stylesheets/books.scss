@@ -1,3 +1,31 @@
 // Place all the styles related to the books controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.comment-box{
+	padding: 10px;
+}
+.user{
+	width: 50px;
+	float: left;
+}
+.comment-block{
+	float: left;
+}
+
+.delete-comment{
+	line-height: 50px;
+}
+
+.author {
+	width: 50px;
+}
+.comment-text {
+	float: left;
+	line-height: 50px;
+	margin: 0 10px;
+}
+input.comment-submit {
+        width: 600px;
+        height: 80px;
+    }
