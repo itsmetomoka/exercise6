@@ -9,7 +9,7 @@
 			<h2>Book detail </h2>
 			<table class="table">
 				<tr><th>
-					<div class ="author">
+					<div class ="author-index">
 						<%= attachment_image_tag @user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg"%><br>
 						<div class="colored">
 						<%= link_to @user.name, user_path(@user.id)%>
@@ -34,7 +34,7 @@
 			</table>
 			<% @book.book_comments.each do |book_comment| %>
 					<div class = "comment-box clearfix">
-						<div class = "user">
+						<div class = "username-pic">
 							<div class = "avatar">
 								<%= attachment_image_tag(@book.user, :profile_image, :fill, 50, 50, fallback: "no-image-mini.jpg") %>
 							</div>
