@@ -14,18 +14,12 @@
 	<tr><td>
 		<h5>Follows</h5>
 	</td><td>
-		<a href="<%= following_user_path(user) %>">
-    <strong id="following" class="stat">
-      <%= user.followings.count %>
-    </strong></a>
+		<%= link_to user.followings.count,following_user_path(user) %>
 	</td></tr>
 	<tr><td>
-		<h5>followers</h5>
+		<h5>Followers</h5>
 	</td><td>
-		<a href="<%= followers_user_path(user) %>">
-    <strong id="followers" class="stat">
-      <%= user.followers.count %>
-    </strong></a>
+		<%= link_to user.followers.count, followers_user_path(user) %>
 	</td></tr>
 		<% if user == current_user %>
 		<tr><td>
@@ -34,16 +28,11 @@
 		<% else %>
 		<% if current_user.following? user %>
 		  <tr><td>
-		  	<%= form_for(current_user.following_relationships.find_by(following_id: user.id), html: { method: :delete }) do |f| %>
-									  <%= f.submit "フォローを外す" ,class:"btn btn-outline-secondary btn-block"%>
-									<% end %>
+				<%= link_to "フォロー解除",user_relationships_path(user.id), method: :delete %>
 		  </td></tr>
 		  <% else %>
 		  <tr><td>
-		  	<%= form_for(current_user.following_relationships.build(following_id: user.id)) do |f| %>
-			  <div><%= f.hidden_field :following_id %></div>
-			  <%= f.submit "フォローする",class:"btn btn-outline-primary btn-block" %>
-			<% end %>
+		  	<%= link_to "フォローする",user_relationships_path(user.id), method: :post %>
 		  </td></tr>
 		  <% end %>
 		<% end %>

@@ -1,6 +1,6 @@
 <div class = "container">
 	<h2>Follower Users</h2>
-	<% if @user.followings.present? %>
+	<% if @user.followers.present? %>
 	<table class="table">
 		<thead>
 			<tr>
@@ -9,7 +9,7 @@
 				<th></th>
 			</tr>
 		</thead>
-		<% @user.followings.each do |user| %>
+		<% @user.followers.each do |user| %>
 				<td><%= attachment_image_tag user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg",size: "50x50" %></td>
 				<td><%=	user.name %></td>
 				<td>フォロー数: <%= user.followings.count %></td>
