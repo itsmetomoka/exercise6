@@ -6,35 +6,9 @@
 		</div>
 		<div class="col-xs-9 col-md-9">
 			<h2>Book detail </h2>
-			<table class="table">
-				<tr><th>
-					<div class ="author-index">
-						<%= attachment_image_tag @user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg"%><br>
-						<div class="colored">
-						<%= link_to @user.name, user_path(@user.id)%>
-						</div>
-					</div>
-				</th><th>
-					<%=@book.title %>
-				</th><th>
-					<%= @book.body %>
-				</th>
-				<th>
-					<div id="favorite_<%= @book.id %>">
-						<%= render 'favorites/favorite', book: @book %>
-					</div>
-				</th>
-				<th>
-					<span class="comment-count">コメント: <%= @book.book_comments.count %></span>
-				</th>
-					<% if @book.user == current_user %>
-						<th>
-							<%= link_to "Edit", edit_book_path(@book.id), class:"btn btn-success btn-sm"%>
-						</th><th>
-								<%= link_to "Destroy", book_path(@book.id),method: :delete ,"data-confirm" =>"Are you sure?", class:"btn btn-danger btn-sm" %>
-					<% end %>
-				</th></tr>
-			</table>
+			<div class="detail_<%= @book.id %>">
+				<%= render 'books/book-detail', book: @book %>
+			</div>
 			<div id ="js-comment">
 				<%= render 'book_comments/index', book: @book, book_comment: @book_comment %>
 			</div>
